@@ -42,11 +42,11 @@
     <input type="radio" name="usia" value="<50"> <50 tahun<br><br>
 
     <label>Pekerjaan Responden:</label><br>
-    <input type="radio" name="status" value="pelajar"> Pelajar/Mahasiswa<br>
-    <input type="radio" name="status" value="pegawai negeri sipil"> PNS/ASN<br>
-    <input type="radio" name="status" value="swasta"> Pegawai Swasta<br>
-    <input type="radio" name="status" value="wiraswasta"> Wiraswasta/Pedagang<br>
-    <input type="radio" name="status" value="irt"> Ibu Rumah Tangga<br><br>
+    <input type="radio" name="pekerjaan" value="pelajar"> Pelajar/Mahasiswa<br>
+    <input type="radio" name="pekerjaan" value="pegawai negeri sipil"> PNS/ASN<br>
+    <input type="radio" name="pekerjaan" value="swasta"> Pegawai Swasta<br>
+    <input type="radio" name="pekerjaan" value="wiraswasta"> Wiraswasta/Pedagang<br>
+    <input type="radio" name="pekerjaan" value="irt"> Ibu Rumah Tangga<br><br>
 
     <label>Area Kunjungan:</label><br>
         <p></p>Anda dapat memilih lebih dari satu jawaban</p>
@@ -117,11 +117,12 @@ function downloadCSV() {
     const kunjungan = document.querySelector('input[name="kunjungan"]:checked')?.value || '';
     const tipe_kunjungan = document.querySelector('input[name="tipe_kunjungan"]:checked')?.value || '';
 
-
     let csv = "Nama,Usia,Pekerjaan,Area,Tujuan,Waktu,Kunjungan,Tipe Kunjungan\n";
     csv += `"${nama}","${usia}","${pekerjaan}","${area}","${tujuan}","${waktu}","${kunjungan}","${tipe_kunjungan}"\n\n`;
 
-    csv += "Pertanyaan,Foto1,Foto2,...,Foto13\n";
+    // Judul kolom penilaian (asumsikan ada 13 foto)
+    csv += "Pertanyaan,Foto1,Foto2,Foto3,Foto4,Foto5,Foto6,Foto7,Foto8,Foto9,Foto10,Foto11,Foto12,Foto13\n";
+
     const rows = document.querySelectorAll("table tr");
 
     for (let i = 1; i < rows.length; i++) {
@@ -133,7 +134,7 @@ function downloadCSV() {
         }
         csv += row.join(",") + "\n";
     }
-    
+
     const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
     const link = document.createElement("a");
     link.setAttribute("href", URL.createObjectURL(blob));
@@ -141,4 +142,3 @@ function downloadCSV() {
     link.click();
 }
 </script>
-
