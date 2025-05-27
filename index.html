@@ -18,17 +18,13 @@
 <p>Silakan isi identitas Anda dan kemudian beri penilaian untuk tiap foto lanskap.</p>
 
 <form>
-  <label for="kunjungan">Apakah Anda pernah berkunjung ke taman ini?</label><br>
-  <input type="radio" id="kunjungan_ya" name="kunjungan" value="Ya">
-  <label for="kunjungan_ya">Ya</label><br>
-  <input type="radio" id="kunjungan_tidak" name="kunjungan" value="Tidak">
-  <label for="kunjungan_tidak">Tidak</label><br><br>
+    <label>Apakah Anda pernah berkunjung ke taman ini?</label><br>
+    <input type="radio" name="kunjungan" value="Ya"> Ya<br>
+    <input type="radio" name="kunjungan" value="Tidak"> Tidak<br><br>
 
-  <label for="tipe_kunjungan">Jika ya, bagaimana Anda biasanya berkunjung?</label><br>
-  <input type="radio" id="perorangan" name="tipe_kunjungan" value="Perorangan">
-  <label for="perorangan">Perorangan</label><br>
-  <input type="radio" id="kelompok" name="tipe_kunjungan" value="Kelompok">
-  <label for="kelompok">Bersama kelompok</label><br>
+    <label>Bagaimana Anda biasanya berkunjung?</label><br>
+    <input type="radio" name="tipe_kunjungan" value="Perorangan"> Perorangan<br>
+    <input type="radio" name="tipe_kunjungan" value="Kelompok"> Bersama Kelompok<br><br>
 </form>
  
 <div class="identity-section">
@@ -120,9 +116,7 @@ function downloadCSV() {
     let csv = "Nama,Usia,Pekerjaan,Area,Tujuan,Waktu,Kunjungan,Tipe Kunjungan\n";
     csv += `"${nama}","${usia}","${pekerjaan}","${area}","${tujuan}","${waktu}","${kunjungan}","${tipe_kunjungan}"\n\n`;
 
-    // Judul kolom penilaian (asumsikan ada 13 foto)
     csv += "Pertanyaan,Foto1,Foto2,Foto3,Foto4,Foto5,Foto6,Foto7,Foto8,Foto9,Foto10,Foto11,Foto12,Foto13\n";
-
     const rows = document.querySelectorAll("table tr");
 
     for (let i = 1; i < rows.length; i++) {
