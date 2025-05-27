@@ -35,11 +35,11 @@
     <h3>Identitas Responden</h3>
     <label>Nama: <input type="text" name="nama"></label><br><br>
     <label>Usia:</label><br>
-    <input type="radio" name="usia" value="remaja"> 12–17 tahun<br>
-    <input type="radio" name="usia" value="dewasa"> 18–24 tahun<br>
-    <input type="radio" name="usia" value="dewasa"> 25–34 tahun<br>
-    <input type="radio" name="usia" value="dewasa"> 35–49 tahun<br>
-    <input type="radio" name="usia" value="lansia"> <50 tahun<br><br>
+    <input type="radio" name="usia" value="12-17"> 12–17 tahun<br>
+    <input type="radio" name="usia" value="18-24"> 18–24 tahun<br>
+    <input type="radio" name="usia" value="25-34"> 25–34 tahun<br>
+    <input type="radio" name="usia" value="35-49"> 35–49 tahun<br>
+    <input type="radio" name="usia" value="<50"> <50 tahun<br><br>
 
     <label>Pekerjaan Responden:</label><br>
     <input type="radio" name="status" value="pelajar"> Pelajar/Mahasiswa<br>
@@ -110,13 +110,13 @@
 function downloadCSV() {
     const nama = document.querySelector('input[name="nama"]').value;
     const usia = document.querySelector('input[name="usia"]:checked')?.value || '';
-    const status = document.querySelector('input[name="status"]:checked')?.value || '';
+    const status = document.querySelector('input[name="pekerjaan"]:checked')?.value || '';
     const area = document.querySelector('input[name="area"]:checked')?.value || '';
     const tujuan = document.querySelector('input[name="tujuan"]:checked')?.value || '';
     const waktu = document.querySelector('input[name="waktu"]:checked')?.value || '';
 
-    let csv = "Nama,Usia,Status,Area,Tujuan,Waktu\n";
-    csv += `"${nama}","${usia}","${status}","${area}","${tujuan}","${waktu}"\n\n`;
+    let csv = "Nama,Usia,Pekerjaan,Area,Tujuan,Waktu\n";
+    csv += `"${nama}","${usia}","${pekerjaan}","${area}","${tujuan}","${waktu}"\n\n`;
 
     csv += "Pertanyaan,Foto1,Foto2,...,Foto13\n";
     const rows = document.querySelectorAll("table tr");
