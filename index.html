@@ -104,11 +104,16 @@
 
 <script>
 function downloadCSV() {
+    const getCheckboxValues = (name) => {
+        const checkboxes = document.querySelectorAll(`input[name="${name}"]:checked`);
+        return Array.from(checkboxes).map(cb => cb.value).join(" / ");
+    };
+
     const nama = document.querySelector('input[name="nama"]').value;
     const usia = document.querySelector('input[name="usia"]:checked')?.value || '';
     const pekerjaan = document.querySelector('input[name="pekerjaan"]:checked')?.value || '';
-    const area = document.querySelector('input[name="area"]:checked')?.value || '';
-    const tujuan = document.querySelector('input[name="tujuan"]:checked')?.value || '';
+    const area = getCheckboxValues("area");
+    const tujuan = getCheckboxValues("tujuan");
     const waktu = document.querySelector('input[name="waktu"]:checked')?.value || '';
     const kunjungan = document.querySelector('input[name="kunjungan"]:checked')?.value || '';
     const tipe_kunjungan = document.querySelector('input[name="tipe_kunjungan"]:checked')?.value || '';
@@ -131,8 +136,10 @@ function downloadCSV() {
 
     const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
     const link = document.createElement("a");
-    link.setAttribute("href", URL.createObjectURL(blob));
-    link.setAttribute("download", "jawaban_responden.csv");
+    link.href = URL.createObjectURL(blob);
+    link.download = "jawaban_responden.csv";
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
 }
 </script>
