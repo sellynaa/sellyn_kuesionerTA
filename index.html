@@ -116,6 +116,12 @@ function downloadCSV() {
     const csv = `Kunjungan,Tipe Kunjungan\n${kunjungan},${tipe_kunjungan}\n`;
     const blob = new Blob([csv], { type: 'text/csv' });
     const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'hasil_kuesioner.csv';
+    a.click();
+}
     
     const nama = document.querySelector('input[name="nama"]').value;
     const usia = document.querySelector('input[name="usia"]:checked')?.value || '';
