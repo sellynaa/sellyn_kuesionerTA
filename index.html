@@ -108,9 +108,6 @@
 
 <script>
 function downloadCSV() {
-    const form = document.getElementById('surveyForm');
-    const data = new FormData(form);
-    
     const nama = document.querySelector('input[name="nama"]').value;
     const usia = document.querySelector('input[name="usia"]:checked')?.value || '';
     const status = document.querySelector('input[name="pekerjaan"]:checked')?.value || '';
@@ -135,7 +132,7 @@ function downloadCSV() {
         }
         csv += row.join(",") + "\n";
     }
-
+    
     const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
     const link = document.createElement("a");
     link.setAttribute("href", URL.createObjectURL(blob));
