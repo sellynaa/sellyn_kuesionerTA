@@ -114,8 +114,8 @@ function downloadCSV() {
     const area = document.querySelector('input[name="area"]:checked')?.value || '';
     const tujuan = document.querySelector('input[name="tujuan"]:checked')?.value || '';
     const waktu = document.querySelector('input[name="waktu"]:checked')?.value || '';
-    const kunjungan = data.get('kunjungan') || '';
-    const tipe_kunjungan = data.get('tipe_kunjungan') || '';
+    const kunjungan = document.querySelector('kunjungan') || '';
+    const tipe_kunjungan = document.querySelector('tipe_kunjungan') || '';
 
     let csv = "Nama,Usia,Pekerjaan,Area,Tujuan,Waktu,Kunjungan,Tipe Kunjungan\n";
     csv += `"${nama}","${usia}","${pekerjaan}","${area}","${tujuan}","${waktu}","${kunjungan}","${tipe_kunjungan}"\n\n`;
