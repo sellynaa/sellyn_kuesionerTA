@@ -108,6 +108,11 @@
 
 <script>
 function downloadCSV() {
+    const form = document.getElementById('surveyForm');
+    const data = new FormData(form);
+    const kunjungan = data.get('kunjungan') || '';
+    const tipe_kunjungan = data.get('tipe_kunjungan') || '';
+    const csv = `Kunjungan,Tipe Kunjungan\n${kunjungan},${tipe_kunjungan}\n`;
     const nama = document.querySelector('input[name="nama"]').value;
     const usia = document.querySelector('input[name="usia"]:checked')?.value || '';
     const status = document.querySelector('input[name="pekerjaan"]:checked')?.value || '';
