@@ -16,7 +16,21 @@
 <h1>Kuesioner Penilaian Estetika Lanskap Taman Indonesia Kaya Kota Semarang</h1>
 
 <p>Silakan isi identitas Anda dan kemudian beri penilaian untuk tiap foto lanskap.</p>
-    
+
+<form>
+  <label for="kunjungan">Apakah Anda pernah berkunjung ke taman ini?</label><br>
+  <input type="radio" id="kunjungan_ya" name="kunjungan" value="Ya">
+  <label for="kunjungan_ya">Ya</label><br>
+  <input type="radio" id="kunjungan_tidak" name="kunjungan" value="Tidak">
+  <label for="kunjungan_tidak">Tidak</label><br><br>
+
+  <label for="tipe_kunjungan">Jika ya, bagaimana Anda biasanya berkunjung?</label><br>
+  <input type="radio" id="perorangan" name="tipe_kunjungan" value="Perorangan">
+  <label for="perorangan">Perorangan</label><br>
+  <input type="radio" id="kelompok" name="tipe_kunjungan" value="Kelompok">
+  <label for="kelompok">Bersama kelompok</label><br>
+</form>
+ 
 <div class="identity-section">
     <h3>Identitas Responden</h3>
     <label>Nama: <input type="text" name="nama"></label><br><br>
